@@ -3,36 +3,49 @@
    Color Palette: Deep Forest Green + Warm Gold + Ivory
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
-
+/* Fonts are loaded via HTML link tags for better performance */
 /* ── CSS Custom Properties ── */
 :root {
-  --green-900: #0a1f14;
-  --green-800: #0f2d1c;
-  --green-700: #1a4028;
-  --green-600: #1e5c35;
-  --green-500: #2d7a4a;
-  --green-400: #3d9960;
-  --green-100: #e8f5ee;
-  --green-50:  #f4faf6;
+  /* ── Charcoal (replaces forest green for dark sections) ── */
+  --charcoal-900: #1a1714;
+  --charcoal-800: #242018;
+  --charcoal-700: #32291e;
+  --charcoal-600: #4a3e30;
 
-  --gold-600:  #b8860b;
-  --gold-500:  #c9920c;
-  --gold-400:  #d4a017;
-  --gold-300:  #e5b830;
-  --gold-100:  #fdf6e3;
-  --gold-50:   #fffdf7;
+  /* ── Keep green vars pointing to charcoal for backwards compat ── */
+  --green-900: #1a1714;
+  --green-800: #242018;
+  --green-700: #32291e;
+  --green-600: #4a3e30;
+  --green-500: #6b5a40;
+  --green-400: #9a845e;
+  --green-100: #f0ead8;
+  --green-50:  #faf6ee;
 
+  /* ── Rich Gold (warmer, less yellow) ── */
+  --gold-700:  #8b6508;
+  --gold-600:  #a67c00;
+  --gold-500:  #b8860b;
+  --gold-400:  #cda028;
+  --gold-300:  #dfb642;
+  --gold-200:  #eed177;
+  --gold-100:  #f8ecb9;
+  --gold-50:   #fdf9e6;
+
+  /* ── Ivory / Page background ── */
   --ivory:     #fdfaf5;
+  --ivory-dark: #f5efe0;
   --white:     #ffffff;
-  --gray-50:   #f9fafb;
-  --gray-100:  #f3f4f6;
-  --gray-200:  #e5e7eb;
-  --gray-300:  #d1d5db;
-  --gray-400:  #9ca3af;
-  --gray-500:  #6b7280;
-  --gray-700:  #374151;
-  --gray-900:  #111827;
+
+  /* ── Warm greys ── */
+  --gray-50:   #faf8f4;
+  --gray-100:  #f2ece0;
+  --gray-200:  #e2d8c8;
+  --gray-300:  #c8baa8;
+  --gray-400:  #a09080;
+  --gray-500:  #7a6c5c;
+  --gray-700:  #3d3228;
+  --gray-900:  #1a1410;
 
   --font-body:    'DM Sans', sans-serif;
   --font-display: 'Playfair Display', serif;
@@ -43,10 +56,10 @@
   --radius-xl:  24px;
   --radius-full: 9999px;
 
-  --shadow-sm:  0 1px 3px rgba(0,0,0,.08);
-  --shadow-md:  0 4px 16px rgba(0,0,0,.08);
-  --shadow-lg:  0 12px 40px rgba(0,0,0,.10);
-  --shadow-xl:  0 24px 64px rgba(0,0,0,.12);
+  --shadow-sm:  0 1px 4px rgba(26,20,16,.10);
+  --shadow-md:  0 4px 20px rgba(26,20,16,.10);
+  --shadow-lg:  0 12px 40px rgba(26,20,16,.13);
+  --shadow-xl:  0 24px 64px rgba(26,20,16,.15);
 
   --ease:       cubic-bezier(0.16,1,0.3,1);
   --duration:   0.35s;
@@ -61,7 +74,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   color: var(--gray-700);
-  background: var(--white);
+  background: var(--ivory);
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -72,7 +85,7 @@ ul { list-style:none; }
 button { font-family: var(--font-body); cursor: pointer; border:none; background:none; }
 input, select, textarea { font-family: var(--font-body); outline:none; }
 
-h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: var(--green-900); }
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: var(--charcoal-900); }
 
 /* ── Container ── */
 .container {
@@ -98,7 +111,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   white-space: nowrap;
   cursor: pointer;
 }
-.btn-sm  { padding: .6rem 1.2rem; font-size: .8rem; }
+.btn-sm { padding: .65rem 1.5rem; font-size: .95rem; transition: all var(--duration) var(--ease); }
+.header.scrolled .btn-sm { padding: .5rem 1.2rem; font-size: .85rem; }
 .btn-lg  { padding: 1.05rem 2.2rem; font-size: 1rem; }
 
 .btn-accent {
@@ -218,70 +232,117 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   position: fixed;
   top: 0; left: 0; width: 100%;
   z-index: 1000;
-  padding: 1.25rem 0;
+  padding: 1.75rem 0;
   transition: all var(--duration) var(--ease);
 }
 
-/* Transparent on home hero, always solid on inner pages */
+/* Solid background only when scrolled, or permanently on inner pages */
 .header--dark,
 .header.scrolled {
   background: var(--green-900);
-  padding: .9rem 0;
+  padding: .8rem 0;
   box-shadow: 0 4px 24px rgba(0,0,0,.18);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-between;
+  max-width: 1400px; /* Wider than the rest of the site */
+  margin: 0 auto;
+  width: 100%;
 }
 
 /* Logo */
 .logo, .footer-logo {
   display: flex;
   align-items: center;
-  gap: .65rem;
+  gap: .85rem;
   text-decoration: none;
   flex-shrink: 0;
 }
-.logo-mark {
-  width: 38px; height: 38px;
-  background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
-  border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: var(--white);
+/* Hide old H letterbox — logo image takes over */
+.logo-mark { display: none; }
+
+/* Header logo image */
+.header-logo-img {
+  height: 64px;
+  width: auto;
+  display: block;
   flex-shrink: 0;
+  /* Keep the gold colour on dark bg; inner white detail shows naturally */
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.3));
+  transition: height var(--duration) var(--ease);
 }
+.header--dark .header-logo-img,
+.header.scrolled .header-logo-img { height: 50px; }
+
+/* Wordmark beside the logo icon */
+.logo-wordmark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: .02em;
+  transition: font-size var(--duration) var(--ease);
+}
+.header--dark .logo-name,
+.header.scrolled .logo-name { font-size: 1.25rem; }
+.logo-name em {
+  font-style: normal;
+  color: var(--gold-300);
+}
+.logo-sub {
+  font-family: var(--font-body);
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  line-height: 1;
+  margin-left: 1px;
+  transition: font-size var(--duration) var(--ease);
+}
+.header--dark .logo-sub,
+.header.scrolled .logo-sub { font-size: .62rem; }
+
+/* Legacy .logo-text (footer uses inline styles — let wordmark handle it) */
 .logo-text {
   font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--white);
-  line-height: 1.2;
+  line-height: 1.3;
 }
 .logo-text span { color: var(--gold-300); }
 
-/* Nav */
 .nav {
   display: flex;
   align-items: center;
   gap: .25rem;
-  margin-left: auto;
+  transform: translateX(-12px); /* Optical alignment adjustment */
 }
 .nav-link {
   display: flex;
   align-items: center;
   gap: .25rem;
-  padding: .5rem .85rem;
+  padding: .6rem 1rem;
   color: rgba(255,255,255,.8);
-  font-size: .875rem;
-  font-weight: 500;
+  font-size: .85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
   border-radius: var(--radius-sm);
-  transition: color var(--duration), background var(--duration);
+  transition: all var(--duration) var(--ease);
 }
+.header--dark .nav-link,
+.header.scrolled .nav-link { font-size: .75rem; padding: .5rem .85rem; }
 .nav-link:hover, .nav-link.active { color: var(--gold-300); }
 
 /* Dropdown */
@@ -290,8 +351,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   position: absolute;
   top: calc(100% + .5rem);
   left: 0;
-  min-width: 220px;
-  background: var(--green-800);
+  min-width: 280px;
+  background: var(--charcoal-800);
   border-radius: var(--radius-md);
   padding: .4rem;
   opacity: 0;
@@ -300,6 +361,15 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   transition: all .25s var(--ease);
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255,255,255,.07);
+}
+/* Invisible bridge to keep hover state active between nav link and dropdown */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  height: 1.5rem;
 }
 .nav-dropdown.open .dropdown-menu {
   opacity: 1;
@@ -323,20 +393,27 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-left: 1rem;
-  flex-shrink: 0;
 }
-.header-phone {
-  display: flex;
+.header-phone-btn {
+  display: inline-flex;
   align-items: center;
-  gap: .4rem;
-  color: rgba(255,255,255,.75);
-  font-size: .8rem;
-  font-weight: 500;
-  transition: color var(--duration);
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 9999px;
+  padding: .65rem 1.6rem;
+  color: var(--white);
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-decoration: none;
+  transition: all var(--duration) var(--ease);
 }
-.header-phone:hover { color: var(--gold-300); }
+.header-phone-btn:hover {
+  border-color: var(--gold-500);
+  color: var(--gold-500);
+}
+.header--dark .header-phone-btn,
+.header.scrolled .header-phone-btn { padding: .5rem 1.25rem; font-size: .85rem; }
 
 /* Hamburger */
 .hamburger {
@@ -414,12 +491,14 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(120deg, rgba(10,31,20,.93) 0%, rgba(10,31,20,.70) 50%, rgba(10,31,20,.3) 100%);
+  background: linear-gradient(120deg, rgba(26,23,20,.92) 0%, rgba(26,23,20,.65) 55%, rgba(26,23,20,.25) 100%);
 }
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
   animation: fadeUp .9s var(--ease) forwards;
 }
 .hero-title {
@@ -436,7 +515,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   margin-bottom: 2rem;
   font-weight: 400;
 }
-.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
 /* Scroll cue */
 .scroll-cue {
@@ -706,7 +785,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
    ================================================================ */
 .page-hero { height: 400px; display: flex; align-items: center; position: relative; background: var(--green-900); overflow: hidden; }
 .page-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80') center/cover; opacity: 0.4; filter: grayscale(50%); }
-.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,31,20,.95) 0%, rgba(10,31,20,.7) 100%); }
+.page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(26,23,20,.95) 0%, rgba(26,23,20,.7) 100%); }
 .page-hero-content { position: relative; z-index: 2; text-align: center; animation: fadeUp .8s var(--ease) forwards; }
 .page-hero-content h1 { color: var(--white); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: .75rem; }
 .page-hero-content p { color: rgba(255,255,255,.8); font-size: 1.1rem; margin-bottom: 1.5rem; }
@@ -869,7 +948,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 .action-col-label { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gray-400); text-align: center; margin-bottom: .25rem; }
 .action-btn { width: 100%; padding: 1rem 1.5rem; border: 2px solid var(--gray-300); border-radius: var(--radius-md); font-size: 1rem; font-weight: 700; font-family: var(--font-body); color: var(--green-900); background: var(--white); cursor: pointer; transition: all var(--duration) var(--ease); letter-spacing: .05em; }
 .action-btn:hover { border-color: var(--gold-400); color: var(--gold-600); background: var(--gold-50); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.action-btn.active { background: var(--green-900); border-color: var(--green-900); color: var(--white); box-shadow: 0 4px 14px rgba(10,31,20,.25); }
+.action-btn.active { background: var(--green-900); border-color: var(--green-900); color: var(--white); box-shadow: 0 4px 14px rgba(26,23,20,.25); }
 .action-btn--large { padding: 1.4rem 1.5rem; font-size: 1.15rem; letter-spacing: .08em; }
 .action-divider { width: 1px; background: var(--gray-200); align-self: stretch; margin: 1.5rem 0; }
 
@@ -937,7 +1016,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   background: linear-gradient(135deg, var(--green-700), var(--green-900));
   color: var(--white);
   border: none;
-  box-shadow: 0 6px 20px rgba(10,31,20,.35);
+  box-shadow: 0 6px 20px rgba(26,23,20,.35);
   cursor: pointer;
   display: flex;
   align-items: center;
