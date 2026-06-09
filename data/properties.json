@@ -1,0 +1,92 @@
+[
+  {
+    "id": "prop-1",
+    "title": "The Grand Horizon",
+    "location": "Sector 42, Gurgaon",
+    "price": "₹4.5 Cr onwards",
+    "category": "Residential",
+    "tags": ["Hot Deal", "Under Construction"],
+    "beds": "3-4 BHK",
+    "area": "2200-3500 sq.ft"
+  },
+  {
+    "id": "prop-2",
+    "title": "Summit Corporate Park",
+    "location": "Cyber City, Gurgaon",
+    "price": "₹12.0 Cr onwards",
+    "category": "Commercial",
+    "tags": ["New Launch"],
+    "beds": "Office Space",
+    "area": "5000-15000 sq.ft"
+  },
+  {
+    "id": "prop-3",
+    "title": "Aura Luxury Villas",
+    "location": "Golf Course Ext Rd",
+    "price": "₹8.2 Cr onwards",
+    "category": "Residential",
+    "tags": ["Ready to Move", "Hot Deal"],
+    "beds": "4-5 BHK Villa",
+    "area": "4500-6000 sq.ft"
+  },
+  {
+    "id": "prop-4",
+    "title": "Elite Retail Spaces",
+    "location": "MG Road, Gurgaon",
+    "price": "₹6.5 Cr onwards",
+    "category": "Commercial",
+    "tags": ["Ready to Move"],
+    "beds": "Retail/Showroom",
+    "area": "1500-5000 sq.ft"
+  },
+  {
+    "id": "prop-5",
+    "title": "Serene Valley Plots",
+    "location": "Sohna Road, Gurgaon",
+    "price": "₹2.1 Cr onwards",
+    "category": "Plots",
+    "tags": ["New Launch"],
+    "beds": "Plot",
+    "area": "200-500 sq.yd"
+  },
+  {
+    "id": "prop-6",
+    "title": "Skyline Residences",
+    "location": "Sector 65, Gurgaon",
+    "price": "₹3.8 Cr onwards",
+    "category": "Residential",
+    "tags": ["Under Construction"],
+    "beds": "2-3 BHK",
+    "area": "1400-2200 sq.ft"
+  },
+  {
+    "id": "prop-7",
+    "title": "Greenfield Meadows",
+    "location": "Sector 79, Gurgaon",
+    "price": "₹1.8 Cr onwards",
+    "category": "Plots",
+    "tags": ["New Launch"],
+    "beds": "Plot",
+    "area": "150-350 sq.yd"
+  },
+  {
+    "id": "prop-8",
+    "title": "Vertex Business Hub",
+    "location": "Udyog Vihar, Gurgaon",
+    "price": "₹9.5 Cr onwards",
+    "category": "Commercial",
+    "tags": ["Ready to Move"],
+    "beds": "Office Tower",
+    "area": "3000-10000 sq.ft"
+  },
+  {
+    "id": "prop-9",
+    "title": "Park View Apartments",
+    "location": "Sector 48, Gurgaon",
+    "price": "₹2.4 Cr onwards",
+    "category": "Residential",
+    "tags": ["Ready to Move"],
+    "beds": "2-3 BHK",
+    "area": "1200-1800 sq.ft"
+  }
+]

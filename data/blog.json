@@ -1,0 +1,50 @@
+[
+  {
+    "id": "blog-1",
+    "title": "Delhi NCR Real Estate Outlook 2026: Where Smart Money is Moving",
+    "category": "Market Update",
+    "date": "02 Jun 2026",
+    "readTime": "8 min read",
+    "excerpt": "A comprehensive analysis of emerging micro-markets, price trends, and regulatory changes shaping the Delhi NCR property landscape this year."
+  },
+  {
+    "id": "blog-2",
+    "title": "Commercial vs Residential Investments: A 2026 Comparison",
+    "category": "Investment",
+    "date": "28 May 2026",
+    "readTime": "6 min read",
+    "excerpt": "A data-driven guide comparing ROI, risk, and liquidity of commercial and residential properties in the current market."
+  },
+  {
+    "id": "blog-3",
+    "title": "5 Tips for Buying Your First Premium Villa",
+    "category": "Guides",
+    "date": "15 May 2026",
+    "readTime": "4 min read",
+    "excerpt": "Navigating the premium housing market can be tricky. Here's what first-time villa buyers need to know before signing."
+  },
+  {
+    "id": "blog-4",
+    "title": "RERA Updates: What Changed for Buyers in Q1 2026",
+    "category": "Legal",
+    "date": "01 May 2026",
+    "readTime": "5 min read",
+    "excerpt": "Key RERA amendments and their impact on homebuyers and developers — a simplified breakdown for non-legal readers."
+  },
+  {
+    "id": "blog-5",
+    "title": "NRI's Guide to Investing in Indian Real Estate",
+    "category": "Investment",
+    "date": "18 Apr 2026",
+    "readTime": "7 min read",
+    "excerpt": "From FEMA compliance to power of attorney — everything overseas Indians need to know about buying property in India."
+  },
+  {
+    "id": "blog-6",
+    "title": "The Dwarka Expressway Effect: Price Surge Analysis",
+    "category": "Market Update",
+    "date": "05 Apr 2026",
+    "readTime": "5 min read",
+    "excerpt": "How the completion of Dwarka Expressway is reshaping property prices in sectors 99-115 of Gurgaon."
+  }
+]

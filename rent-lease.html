@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent a Property | Heaven's Portfolio Realty</title>
+  <meta name="description" content="Find a rental or lease property through Heaven's Portfolio. Tell us your requirement and we'll match you with the right property.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header header--dark" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" id="logo">
+            <img src="img/logo.svg" alt="Heaven's Portfolio Real Estate Solutions Pvt. Ltd. Logo" class="logo-mark">
+            <div class="logo-text">Heaven's <span>Portfolio</span><br><span style="font-size: 0.55em; letter-spacing: 0.25em; color: rgba(255,255,255,0.7); text-transform: uppercase;">Real Estate Solutions Pvt. Ltd.</span></div>
+          </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <div class="nav-dropdown">
+          <a href="properties.html" class="nav-link">Properties <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="dropdown-menu">
+            <a href="properties.html?cat=residential">Residential</a>
+            <a href="properties.html?cat=commercial">Commercial</a>
+            <a href="properties.html?cat=plots">Plots & Land</a>
+          </div>
+        </div>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:01244257151" class="header-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          0124-4257151
+        </a>
+        <a href="contact.html" class="btn btn-accent btn-sm">Contact Us</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Sub-header -->
+  <div class="form-page-header">
+    <div class="container">
+      <a href="index.html" class="back-btn" id="rl-back-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Back to Home
+      </a>
+      <h1 class="form-page-title">Rent a Property</h1>
+      <p class="form-page-sub">Fill in your requirement — our team will match you with the right property.</p>
+    </div>
+  </div>
+
+  <!-- Form Section -->
+  <section class="section" style="padding-top: 3rem;">
+    <div class="container">
+      <div class="form-page-grid">
+        <div class="form-card" id="rl-form-card">
+          <form id="rl-form">
+            <!-- Rent / Lease toggle -->
+            <div class="form-group">
+              <label class="form-group-label">I am looking to: *</label>
+              <div class="rl-toggle" id="rl-toggle">
+                <label class="rl-option" id="opt-rent">
+                  <input type="radio" name="rl_type" value="rent" id="radio-rent">
+                  <span class="rl-option-box">🔑 Rent a Property</span>
+                </label>
+                <label class="rl-option" id="opt-rent-out">
+                  <input type="radio" name="rl_type" value="rent-out" id="radio-rent-out">
+                  <span class="rl-option-box">🏠 Rent Out My Property</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="rl-name">Full Name *</label>
+                <input type="text" id="rl-name" required placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label for="rl-phone">Phone Number *</label>
+                <input type="tel" id="rl-phone" required placeholder="+91 XXXXX XXXXX">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="rl-email">Email Address</label>
+                <input type="email" id="rl-email" placeholder="Optional">
+              </div>
+              <div class="form-group">
+                <label for="rl-type">Property Type *</label>
+                <select id="rl-type" required>
+                  <option value="" disabled selected>Residential / Commercial</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="rl-location">Preferred Location</label>
+                <input type="text" id="rl-location" placeholder="Area / Sector / City">
+              </div>
+              <div class="form-group">
+                <label for="rl-budget">Monthly Budget</label>
+                <input type="text" id="rl-budget" placeholder="₹ Amount / month">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="rl-duration">Required Duration</label>
+              <input type="text" id="rl-duration" placeholder="e.g. 6 months, 1 year, long-term...">
+            </div>
+            <button type="submit" class="btn btn-accent btn-lg" style="width:100%" onclick="submitRLForm(event)">Submit →</button>
+          </form>
+
+          <!-- Success State -->
+          <div class="form-success" id="rl-success" style="display:none;">
+            <div class="success-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3>Thank you!</h3>
+            <p>We've received your requirement. Our team will be in touch shortly.</p>
+            <a href="index.html" class="btn btn-outline" style="margin-top:1rem;">← Back to Home</a>
+          </div>
+        </div>
+
+        <!-- Side info -->
+        <div class="form-page-info">
+          <div class="info-card">
+            <div class="info-icon">🏠</div>
+            <h4>Wide Inventory</h4>
+            <p>Verified rental listings across Delhi NCR — curated for every budget.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">💯</div>
+            <h4>Transparent Pricing</h4>
+            <p>No hidden charges. Clear pricing and honest advisory at every step of your rental journey.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📄</div>
+            <h4>Agreement Support</h4>
+            <p>We help you draft a legally sound rental agreement with all necessary clauses.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📞</div>
+            <h4>Quick Response</h4>
+            <p>Our team will contact you within 24 hours with suitable property options.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <div class="footer-legal-info"><span>RERA# RC/HARERA/GGM/3775/3370/2025/652</span></div>
+        <p>© 2026 Heaven's Portfolio Real Estate Solutions Pvt. Ltd.</p>
+        <div class="footer-legal-links"><a href="index.html">Home</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Pre-select option based on URL param
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+    if (type === 'rent-out') {
+      document.getElementById('radio-rent-out').checked = true;
+    } else {
+      document.getElementById('radio-rent').checked = true;
+    }
+
+    function submitRLForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('rl-form');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (!document.querySelector('input[name="rl_type"]:checked')) {
+        alert('Please select an option.'); return;
+      }
+      form.style.display = 'none';
+      document.getElementById('rl-success').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

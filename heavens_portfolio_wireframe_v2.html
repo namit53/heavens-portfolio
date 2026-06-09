@@ -1,0 +1,340 @@
+
+<h2 class="sr-only">Website wireframe for Heaven's Portfolio — 5 pages with interaction states</h2>
+
+<style>
+.wf{font-family:var(--font-sans);max-width:700px;padding:1rem 0}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:12px;border-bottom:0.5px solid var(--color-border-secondary)}
+.tab{font-size:12px;padding:5px 11px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer}
+.tab.on{background:var(--color-background-primary);color:var(--color-text-primary);border-color:var(--color-border-primary);font-weight:500}
+.pg{display:none}
+.pg.on{display:block}
+.frame{border:1px solid var(--color-border-primary);border-radius:var(--border-radius-lg);overflow:hidden}
+.nav{background:var(--color-background-secondary);border-bottom:0.5px solid var(--color-border-secondary);padding:8px 14px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:11px;font-weight:500;color:var(--color-text-primary);border:0.5px solid var(--color-border-secondary);padding:4px 8px;border-radius:var(--border-radius-md)}
+.navlinks{display:flex;gap:10px}
+.nl{font-size:11px;color:var(--color-text-secondary)}
+.nl.cur{font-size:11px;color:var(--color-text-primary);font-weight:500;text-decoration:underline}
+.hero{background:var(--color-background-secondary);border-bottom:0.5px solid var(--color-border-secondary);padding:18px 16px;text-align:center}
+.h1{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.h2{font-size:11px;color:var(--color-text-secondary)}
+.sec{padding:14px 16px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.sec:last-child{border-bottom:none}
+.slbl{font-size:10px;font-weight:500;letter-spacing:.6px;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:9px}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:0.5px dashed var(--color-border-secondary);border-radius:var(--border-radius-md)}
+.svc-l{border-right:0.5px dashed var(--color-border-secondary);padding:12px}
+.svc-r{padding:12px}
+.col-lbl{font-size:10px;color:var(--color-text-tertiary);font-style:italic;text-align:center;margin-bottom:8px}
+.wbtn{border:1.5px solid var(--color-border-primary);border-radius:var(--border-radius-md);padding:10px;text-align:center;font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:5px}
+.wbtn.active{background:var(--color-text-primary);color:var(--color-background-primary)}
+.annot{font-size:10px;color:var(--color-text-tertiary);font-style:italic;text-align:center;margin-bottom:8px}
+.note{background:var(--color-background-secondary);border:0.5px dashed var(--color-border-secondary);border-radius:var(--border-radius-md);padding:5px 9px;font-size:10px;color:var(--color-text-secondary);font-style:italic;margin-top:6px}
+.ph{background:var(--color-background-tertiary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--color-text-tertiary)}
+.blk{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:11px;color:var(--color-text-secondary)}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:8px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.row{display:flex;gap:8px}
+.pcard{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden}
+.pimg{height:42px;background:var(--color-background-tertiary);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--color-text-tertiary);border-bottom:0.5px solid var(--color-border-tertiary)}
+.pbody{padding:7px 8px}
+.ptog{display:flex;gap:5px;margin-bottom:8px}
+.togbtn{border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:4px 10px;font-size:10px;color:var(--color-text-secondary)}
+.togbtn.on{background:var(--color-text-primary);color:var(--color-background-primary);border-color:var(--color-text-primary)}
+.lnk{font-size:11px;color:var(--color-text-secondary);text-decoration:underline;cursor:default}
+.ft{background:var(--color-background-secondary);padding:12px 16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.ftcol{font-size:10px;color:var(--color-text-secondary)}
+.ftcol-t{font-size:11px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.phd{background:var(--color-background-secondary);border-bottom:0.5px solid var(--color-border-secondary);padding:8px 14px;display:flex;align-items:center;gap:10px}
+.backbtn{font-size:11px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:4px 9px;color:var(--color-text-secondary)}
+.ptitle{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.fw{padding:16px}
+.flbl{font-size:10px;font-weight:500;color:var(--color-text-secondary);letter-spacing:.3px;margin-bottom:3px;display:block}
+.finp{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:6px 9px;font-size:11px;color:var(--color-text-tertiary);font-style:italic;margin-bottom:8px;width:100%;box-sizing:border-box}
+.fta{height:46px}
+.fsub{border:1.5px solid var(--color-border-primary);border-radius:var(--border-radius-md);padding:7px 18px;font-size:12px;font-weight:500;color:var(--color-text-primary);margin-top:4px;display:inline-block}
+.cbwrap{display:flex;gap:16px;padding:9px 12px;border:0.5px dashed var(--color-border-secondary);border-radius:var(--border-radius-md);margin-bottom:12px}
+.cbi{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--color-text-primary);font-weight:500}
+.cb{width:14px;height:14px;border:1.5px solid var(--color-border-primary);border-radius:3px;flex-shrink:0}
+.cb.on{background:var(--color-text-primary);border-color:var(--color-text-primary)}
+.succ{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:14px;text-align:center;margin-top:12px}
+.tag{font-size:9px;background:var(--color-background-success);color:var(--color-text-success);border-radius:3px;padding:2px 5px;display:inline-block;margin-bottom:2px}
+.tagi{background:var(--color-background-info);color:var(--color-text-info)}
+.divln{border:none;border-top:0.5px dashed var(--color-border-secondary);margin:10px 0}
+</style>
+
+<div class="wf">
+<div style="margin-bottom:14px">
+  <div style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px">Heaven's Portfolio Real Estate Solutions Pvt. Ltd.</div>
+  <div style="font-size:11px;color:var(--color-text-secondary)">Website wireframe · 5 screens · Select a screen to view</div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="sw('h',this)">① Home</button>
+  <button class="tab" onclick="sw('b',this)">② Home — Buy expanded</button>
+  <button class="tab" onclick="sw('p',this)">③ Properties page</button>
+  <button class="tab" onclick="sw('s',this)">④ Sell form</button>
+  <button class="tab" onclick="sw('r',this)">⑤ Rent / Lease form</button>
+</div>
+
+<div class="pg on" id="h">
+<div style="font-size:10px;color:var(--color-text-tertiary);font-style:italic;margin-bottom:8px">Default state — what every visitor sees on load</div>
+<div class="frame">
+  <div class="nav">
+    <div class="logo">Heaven's Portfolio</div>
+    <div class="navlinks">
+      <span class="nl cur">Home</span><span class="nl">About Us</span><span class="nl">Properties</span><span class="nl">Blog</span><span class="nl">Contact Us</span>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="h1">Your Trusted Real Estate Partner in Delhi NCR</div>
+    <div class="h2">RERA Verified · Residential & Commercial · Trusted by clients for over a decade</div>
+  </div>
+  <div class="sec">
+    <div class="slbl">Our services</div>
+    <div class="svc-grid">
+      <div class="svc-l">
+        <div class="col-lbl">Property transactions</div>
+        <div class="wbtn">BUY</div>
+        <div class="annot">↓ Expands property preview below (see screen ②)</div>
+        <div class="wbtn">SELL</div>
+        <div class="annot">Opens Sell form on a new page (see screen ④)</div>
+      </div>
+      <div class="svc-r">
+        <div class="col-lbl">Rental &amp; leasing</div>
+        <div class="wbtn">RENT</div>
+        <div class="annot">Opens Rent/Lease form, Rent pre-checked (screen ⑤)</div>
+        <div class="wbtn">LEASE</div>
+        <div class="annot">Opens Rent/Lease form, Lease pre-checked (screen ⑤)</div>
+      </div>
+    </div>
+    <div class="note">Only one button is active at a time. Clicking a different button replaces the current state.</div>
+  </div>
+  <div class="sec">
+    <div class="slbl">About us — brief section</div>
+    <div class="row">
+      <div style="flex:2">
+        <div class="blk" style="min-height:80px">
+          <div style="font-weight:500;font-size:12px;color:var(--color-text-primary);margin-bottom:5px">About Heaven's Portfolio</div>
+          <div style="font-size:10px;color:var(--color-text-tertiary);line-height:1.7">3–4 sentences. Founding year, RERA number, areas covered, team expertise. Focus on decades of client relationships and trust.</div>
+          <div class="lnk" style="margin-top:8px;display:block">Know more about us →</div>
+        </div>
+      </div>
+      <div style="flex:1"><div class="ph" style="min-height:80px">Office / team photo</div></div>
+    </div>
+  </div>
+  <div class="ft">
+    <div class="ftcol"><div class="ftcol-t">Heaven's Portfolio</div>Logo · tagline · RERA no.<br/>Social: LinkedIn · Instagram</div>
+    <div class="ftcol"><div class="ftcol-t">Quick links</div>Home · About Us · Properties<br/>Blog · Contact Us</div>
+    <div class="ftcol"><div class="ftcol-t">Get in touch</div>+91 XXXXX XXXXX<br/>info@heavensportfolio.com<br/>Office address, Delhi NCR</div>
+  </div>
+</div>
+</div>
+
+<div class="pg" id="b">
+<div style="font-size:10px;color:var(--color-text-tertiary);font-style:italic;margin-bottom:8px">Homepage state after BUY is clicked — property preview smoothly slides open below</div>
+<div class="frame">
+  <div class="nav">
+    <div class="logo">Heaven's Portfolio</div>
+    <div class="navlinks">
+      <span class="nl cur">Home</span><span class="nl">About Us</span><span class="nl">Properties</span><span class="nl">Blog</span><span class="nl">Contact Us</span>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="h1">Your Trusted Real Estate Partner in Delhi NCR</div>
+    <div class="h2">RERA Verified · Residential & Commercial · Trusted by clients for over a decade</div>
+  </div>
+  <div class="sec">
+    <div class="slbl">Our services — BUY is active</div>
+    <div class="svc-grid">
+      <div class="svc-l">
+        <div class="col-lbl">Property transactions</div>
+        <div class="wbtn active">BUY ✓</div>
+        <div class="annot">Active — filled button indicates selection</div>
+        <div class="wbtn">SELL</div>
+      </div>
+      <div class="svc-r">
+        <div class="col-lbl">Rental &amp; leasing</div>
+        <div class="wbtn">RENT</div>
+        <div class="wbtn">LEASE</div>
+      </div>
+    </div>
+    <hr class="divln"/>
+    <div class="slbl" style="margin-top:4px">↓ Property preview — slides open when BUY is clicked</div>
+    <div class="ptog">
+      <div class="togbtn on">Residential</div>
+      <div class="togbtn">Commercial</div>
+    </div>
+    <div class="g3">
+      <div class="pcard">
+        <div class="pimg">Property photo</div>
+        <div class="pbody">
+          <div class="tag">Residential</div>
+          <div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div>
+          <div style="font-size:10px;color:var(--color-text-tertiary)">Sector XX, Gurgaon</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">
+            <span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span>
+            <span style="font-size:10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:2px 7px;color:var(--color-text-secondary)">Enquire</span>
+          </div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pimg">Property photo</div>
+        <div class="pbody">
+          <div class="tag">Residential</div>
+          <div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div>
+          <div style="font-size:10px;color:var(--color-text-tertiary)">Sector XX, Noida</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">
+            <span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span>
+            <span style="font-size:10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:2px 7px;color:var(--color-text-secondary)">Enquire</span>
+          </div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pimg">Property photo</div>
+        <div class="pbody">
+          <div class="tag">Residential</div>
+          <div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div>
+          <div style="font-size:10px;color:var(--color-text-tertiary)">Sector XX, Delhi</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">
+            <span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span>
+            <span style="font-size:10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:2px 7px;color:var(--color-text-secondary)">Enquire</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:right;margin-top:8px"><span class="lnk">View all properties →</span></div>
+    <div class="note">Shows 3 featured properties. "View all" goes to the Properties page (screen ③). Toggle switches between Residential and Commercial.</div>
+  </div>
+  <div class="sec" style="background:var(--color-background-secondary);padding:8px 16px">
+    <div style="font-size:10px;color:var(--color-text-tertiary);font-style:italic">About Us section and Footer continue below — same as screen ①</div>
+  </div>
+</div>
+</div>
+
+<div class="pg" id="p">
+<div style="font-size:10px;color:var(--color-text-tertiary);font-style:italic;margin-bottom:8px">Separate page — reached via "View all properties →" link or via navbar. URL: /properties</div>
+<div class="frame">
+  <div class="nav">
+    <div class="logo">Heaven's Portfolio</div>
+    <div class="navlinks">
+      <span class="nl">Home</span><span class="nl">About Us</span><span class="nl cur">Properties</span><span class="nl">Blog</span><span class="nl">Contact Us</span>
+    </div>
+  </div>
+  <div class="hero" style="padding:14px 16px">
+    <div class="h1">Our Properties</div>
+    <div class="h2">Verified residential &amp; commercial listings across Delhi NCR</div>
+  </div>
+  <div class="sec">
+    <div class="slbl">Filter bar</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <span style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:4px 10px;font-size:10px;color:var(--color-text-secondary)">All</span>
+      <span style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:4px 10px;font-size:10px;color:var(--color-text-secondary)">Residential</span>
+      <span style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:4px 10px;font-size:10px;color:var(--color-text-secondary)">Commercial</span>
+      <span style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:4px 10px;font-size:10px;color:var(--color-text-secondary)">Location ▾</span>
+      <span style="border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:4px 10px;font-size:10px;color:var(--color-text-secondary)">Price ▾</span>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="slbl">Property grid — all ~20 listings, 3 per row</div>
+    <div class="g3">
+      <div class="pcard"><div class="pimg">Photo</div><div class="pbody"><div class="tag">Residential</div><div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div><div style="font-size:10px;color:var(--color-text-tertiary);margin-bottom:3px">Sector XX, Gurgaon</div><span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span></div></div>
+      <div class="pcard"><div class="pimg">Photo</div><div class="pbody"><div class="tag tagi">Commercial</div><div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div><div style="font-size:10px;color:var(--color-text-tertiary);margin-bottom:3px">Sector XX, Noida</div><span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span></div></div>
+      <div class="pcard"><div class="pimg">Photo</div><div class="pbody"><div class="tag">Residential</div><div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div><div style="font-size:10px;color:var(--color-text-tertiary);margin-bottom:3px">Sector XX, Delhi</div><span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span></div></div>
+      <div class="pcard"><div class="pimg">Photo</div><div class="pbody"><div class="tag">Residential</div><div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div><div style="font-size:10px;color:var(--color-text-tertiary);margin-bottom:3px">Sector XX, Gurgaon</div><span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span></div></div>
+      <div class="pcard"><div class="pimg">Photo</div><div class="pbody"><div class="tag tagi">Commercial</div><div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div><div style="font-size:10px;color:var(--color-text-tertiary);margin-bottom:3px">Sector XX, Noida</div><span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span></div></div>
+      <div class="pcard"><div class="pimg">Photo</div><div class="pbody"><div class="tag">Residential</div><div style="font-size:11px;font-weight:500;color:var(--color-text-primary);margin:3px 0">Property name</div><div style="font-size:10px;color:var(--color-text-tertiary);margin-bottom:3px">Sector XX, Delhi</div><span style="font-size:11px;font-weight:500;color:var(--color-text-primary)">₹X.XX Cr</span></div></div>
+    </div>
+    <div style="text-align:center;margin-top:10px;font-size:11px;color:var(--color-text-tertiary)">← Page 1 of 2 →</div>
+    <div class="note">All ~20 properties listed here. 3 per row, paginated if more than 12. Each card shows: photo · type tag · name · location · price.</div>
+  </div>
+  <div class="ft">
+    <div class="ftcol"><div class="ftcol-t">Heaven's Portfolio</div>Logo · RERA no.</div>
+    <div class="ftcol"><div class="ftcol-t">Quick links</div>Home · About · Blog · Contact</div>
+    <div class="ftcol"><div class="ftcol-t">Get in touch</div>+91 XXXXX · Email · Address</div>
+  </div>
+</div>
+</div>
+
+<div class="pg" id="s">
+<div style="font-size:10px;color:var(--color-text-tertiary);font-style:italic;margin-bottom:8px">Separate page — opens when SELL is clicked on homepage. Has a back button to return. URL: /sell</div>
+<div class="frame">
+  <div class="phd">
+    <span class="backbtn">← Back</span>
+    <span class="ptitle">Sell your property</span>
+  </div>
+  <div class="fw">
+    <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:14px">Fill in the details below — our team will reach out to you shortly.</div>
+    <div class="g2">
+      <div><label class="flbl">Full name *</label><div class="finp">Enter your name</div></div>
+      <div><label class="flbl">Phone number *</label><div class="finp">+91 XXXXX XXXXX</div></div>
+    </div>
+    <div class="g2">
+      <div><label class="flbl">Email address</label><div class="finp">Optional</div></div>
+      <div><label class="flbl">Property type *</label><div class="finp">Residential / Commercial ▾</div></div>
+    </div>
+    <div class="g2">
+      <div><label class="flbl">Property location *</label><div class="finp">Area / Sector / City</div></div>
+      <div><label class="flbl">Asking price (approx.)</label><div class="finp">₹ Amount</div></div>
+    </div>
+    <label class="flbl">Brief description</label>
+    <div class="finp fta">Size, floor, configuration, any special features...</div>
+    <div class="fsub">Submit</div>
+    <div class="succ">
+      <div style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px">Thank you!</div>
+      <div style="font-size:11px;color:var(--color-text-secondary)">We've received your details. Our team will call you within 24 hours.</div>
+      <div class="lnk" style="margin-top:8px;display:block">← Back to Home</div>
+    </div>
+    <div class="note">After submit: form is replaced by the thank you message above. Website's job is done — no redirect needed.</div>
+  </div>
+</div>
+</div>
+
+<div class="pg" id="r">
+<div style="font-size:10px;color:var(--color-text-tertiary);font-style:italic;margin-bottom:8px">Separate page — shared by both RENT and LEASE buttons. Relevant checkbox is pre-checked based on which was clicked. URL: /rent-lease</div>
+<div class="frame">
+  <div class="phd">
+    <span class="backbtn">← Back</span>
+    <span class="ptitle">Rent / Lease a property</span>
+  </div>
+  <div class="fw">
+    <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:10px">Fill in your requirement — our team will match you with the right property.</div>
+    <label class="flbl">I am looking to: *</label>
+    <div class="cbwrap">
+      <div class="cbi"><div class="cb on"></div>Rent</div>
+      <div class="cbi"><div class="cb"></div>Lease</div>
+    </div>
+    <div class="note" style="margin-bottom:12px">Rent is pre-checked if user arrived via RENT button. Lease is pre-checked if via LEASE. User can change the selection freely.</div>
+    <div class="g2">
+      <div><label class="flbl">Full name *</label><div class="finp">Enter your name</div></div>
+      <div><label class="flbl">Phone number *</label><div class="finp">+91 XXXXX XXXXX</div></div>
+    </div>
+    <div class="g2">
+      <div><label class="flbl">Email address</label><div class="finp">Optional</div></div>
+      <div><label class="flbl">Property type *</label><div class="finp">Residential / Commercial ▾</div></div>
+    </div>
+    <div class="g2">
+      <div><label class="flbl">Preferred location</label><div class="finp">Area / Sector / City</div></div>
+      <div><label class="flbl">Monthly budget</label><div class="finp">₹ Amount / month</div></div>
+    </div>
+    <label class="flbl">Required duration</label>
+    <div class="finp">e.g. 6 months, 1 year, long-term...</div>
+    <div class="fsub">Submit</div>
+    <div class="succ">
+      <div style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px">Thank you!</div>
+      <div style="font-size:11px;color:var(--color-text-secondary)">We've received your requirement. Our team will be in touch shortly.</div>
+      <div class="lnk" style="margin-top:8px;display:block">← Back to Home</div>
+    </div>
+    <div class="note">Same thank you pattern as the Sell form — replaces the form after submit.</div>
+  </div>
+</div>
+</div>
+
+</div>
+
+<script>
+function sw(id,btn){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+</script>
