@@ -145,12 +145,25 @@ function initMobileMenu() {
 // ─── Dropdown Menus ───
 function initDropdowns() {
   document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+    // Desktop: hover
     dropdown.addEventListener('mouseenter', () => {
       dropdown.classList.add('open');
     });
     dropdown.addEventListener('mouseleave', () => {
       dropdown.classList.remove('open');
     });
+
+    // Mobile: tap the parent link to toggle dropdown
+    const trigger = dropdown.querySelector('.nav-link');
+    if (trigger) {
+      trigger.addEventListener('click', (e) => {
+        // Only intercept on mobile (hamburger visible)
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          dropdown.classList.toggle('open');
+        }
+      });
+    }
   });
 }
 
