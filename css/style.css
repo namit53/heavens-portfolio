@@ -164,6 +164,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 .badge-gold    { background: var(--gold-100); color: var(--gold-600); border: 1px solid #e8c85a55; }
 .badge-success { background: var(--green-100); color: var(--green-600); border: 1px solid #3d996033; }
 .badge-info    { background: #e8f0ff; color: #3358cc; border: 1px solid #3358cc33; }
+.badge-ultra   { background: #FDF0D0; color: #92640A; border: 1px solid #92640A33; }
 
 /* ── Section Helpers ── */
 .section { padding: var(--section-py) 0; }

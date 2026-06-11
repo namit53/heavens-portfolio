@@ -234,70 +234,70 @@ function initScrollAnimations() {
 let allProperties = [
   {
     "id": "prop-1",
-    "title": "The Grand Horizon",
-    "location": "Sector 42, Gurgaon",
-    "price": "₹4.5 Cr onwards",
+    "title": "DLF The Camellias",
+    "location": "Sector 42, Golf Course Road",
+    "price": "₹70.0 Cr onwards",
     "category": "Residential",
-    "tags": ["Hot Deal", "Under Construction"],
-    "beds": "3-4 BHK",
-    "area": "2200-3500 sq.ft",
-    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+    "tags": ["Ready to Move", "Ultra Luxury"],
+    "beds": "4, 5, 6 BHK & Penthouses",
+    "area": "7,196-16,500 sq.ft",
+    "image": "images_properties/Dlf_Cammelias.webp"
   },
   {
     "id": "prop-2",
-    "title": "Summit Corporate Park",
-    "location": "Cyber City, Gurgaon",
-    "price": "₹12.0 Cr onwards",
-    "category": "Commercial",
-    "tags": ["New Launch"],
-    "beds": "Office Space",
-    "area": "5000-15000 sq.ft",
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+    "title": "DLF The Magnolias",
+    "location": "Sector 42, Golf Course Road",
+    "price": "₹40.0 Cr onwards",
+    "category": "Residential",
+    "tags": ["Ready to Move", "Ultra Luxury"],
+    "beds": "4, 5 BHK & Penthouses",
+    "area": "5,825-10,777 sq.ft",
+    "image": "images_properties/dlf-the-magnolias.webp"
   },
   {
     "id": "prop-3",
-    "title": "Aura Luxury Villas",
-    "location": "Golf Course Ext Rd",
-    "price": "₹8.2 Cr onwards",
+    "title": "DLF The Aralias",
+    "location": "Sector 42, Golf Course Road",
+    "price": "₹30.0 Cr onwards",
     "category": "Residential",
-    "tags": ["Ready to Move", "Hot Deal"],
-    "beds": "4-5 BHK Villa",
-    "area": "4500-6000 sq.ft",
-    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80"
+    "tags": ["Ready to Move", "Ultra Luxury"],
+    "beds": "4, 5 BHK & Penthouses",
+    "area": "5,575-10,000 sq.ft",
+    "image": "images_properties/DLF The Aralias.webp"
   },
   {
     "id": "prop-4",
-    "title": "Elite Retail Spaces",
-    "location": "MG Road, Gurgaon",
-    "price": "₹6.5 Cr onwards",
-    "category": "Commercial",
-    "tags": ["Ready to Move"],
-    "beds": "Retail/Showroom",
-    "area": "1500-5000 sq.ft",
-    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+    "title": "Ambience Caitriona",
+    "location": "Sector 24, Ambience Island",
+    "price": "₹19.9 Cr onwards",
+    "category": "Residential",
+    "tags": ["Ready to Move", "Ultra Luxury"],
+    "beds": "4, 5, 5.5 BHK & Penthouses",
+    "area": "6,700-11,825 sq.ft",
+    "image": "images_properties/Ambience_Caitriona.jpg"
   },
 
   {
     "id": "prop-6",
-    "title": "Skyline Residences",
-    "location": "Sector 65, Gurgaon",
-    "price": "₹3.8 Cr onwards",
+    "title": "DLF The Crest",
+    "location": "Sector 54, Golf Course Road",
+    "price": "₹10.9 Cr onwards",
     "category": "Residential",
-    "tags": ["Under Construction"],
-    "beds": "2-3 BHK",
-    "area": "1400-2200 sq.ft",
-    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+    "tags": ["Ready to Move", "Ultra Luxury"],
+    "beds": "3, 4, 5 BHK & Penthouses",
+    "area": "2,650-6,288 sq.ft",
+    "image": "images_properties/DLF_TheCrestjpg.jpg"
   },
   {
     "id": "prop-8",
-    "title": "Vertex Business Hub",
-    "location": "Udyog Vihar, Gurgaon",
+    "title": "Godrej Miraya",
+    "location": "Sector 43, Golf Course Road",
     "price": "₹9.5 Cr onwards",
-    "category": "Commercial",
-    "tags": ["Ready to Move"],
-    "beds": "Office Tower",
-    "area": "3000-10000 sq.ft",
-    "image": "https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=800&q=80"
+    "category": "Residential",
+    "tags": ["New Launch", "Ultra Luxury"],
+    "beds": "3, 4 BHK",
+    "area": "2,711-4,577 sq.ft",
+    "image": "images_properties/godrej_miraya.png"
   },
   {
     "id": "prop-9",
@@ -389,7 +389,7 @@ function renderPropertyCards(properties, containerId) {
 
   properties.forEach(prop => {
     const badges = (prop.tags || []).map(tag => {
-      const cls = tag === 'Hot Deal' ? 'badge-success' : tag === 'New Launch' ? 'badge-gold' : 'badge-info';
+      const cls = tag === 'Ultra Luxury' ? 'badge-ultra' : tag === 'Hot Deal' ? 'badge-success' : tag === 'New Launch' ? 'badge-gold' : 'badge-info';
       return `<span class="badge ${cls}">${tag}</span>`;
     }).join('');
 
