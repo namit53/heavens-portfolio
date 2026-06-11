@@ -370,10 +370,11 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   gap: .25rem;
   padding: .54rem .9rem;
   color: #4A3E30;
-  font-size: .9rem;
-  font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .12em;
+  letter-spacing: .08em;
   border-radius: var(--radius-sm);
   transition: all var(--duration) var(--ease);
 }
@@ -419,8 +420,10 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   width: 100%;
   padding: .9rem 1.25rem;
   color: rgba(255,255,255,.75);
-  font-size: .9rem;
-  font-weight: 500;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .05em;
   border-radius: var(--radius-sm);
   transition: background .2s, color .2s;
   cursor: pointer;
@@ -443,10 +446,11 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   border: 1px solid #B8860B;
   border-radius: var(--radius-full);
   color: #B8860B;
-  font-size: .945rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
   font-weight: 700;
   text-shadow: 0 0 1px currentColor;
-  letter-spacing: .05em;
+  letter-spacing: .08em;
   text-decoration: none;
   transition: all var(--duration) var(--ease);
 }
