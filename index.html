@@ -7,7 +7,7 @@
   <meta name="description" content="Heaven's Portfolio Real Estate Solutions — RERA verified residential & commercial properties across Delhi NCR. 15+ years of trusted advisory.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Spectral:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -107,9 +107,18 @@
         <h2 class="section-title">Find Your Perfect Property</h2>
       </div>
       <div class="action-panel action-panel--3">
-        <button class="action-btn action-btn--large" id="btn-buy" onclick="handleAction('buy')">🏠 BUY</button>
-        <button class="action-btn action-btn--large" id="btn-sell" onclick="handleAction('sell')">💼 SELL</button>
-        <button class="action-btn action-btn--large" id="btn-rent" onclick="handleAction('rent')">🔑 RENT</button>
+        <button class="action-btn action-btn--large" id="btn-buy" onclick="handleAction('buy')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1916" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          BUY
+        </button>
+        <button class="action-btn action-btn--large" id="btn-sell" onclick="handleAction('sell')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1916" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><circle cx="7" cy="7" r="1.5" fill="#1C1916" stroke="none"></circle></svg>
+          SELL
+        </button>
+        <button class="action-btn action-btn--large" id="btn-rent" onclick="handleAction('rent')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1916" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></svg>
+          RENT
+        </button>
       </div>
 
       <!-- BUY expanded panel -->
@@ -164,6 +173,17 @@
       <div class="properties-grid" id="home-properties-grid">
         <!-- Populated by JS -->
       </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner" id="cta-banner">
+    <div class="container cta-inner">
+      <div class="cta-text">
+        <h2>Ready to Find Your Ideal Property?</h2>
+        <p>Our experts are just a call away. Get personalized guidance today.</p>
+      </div>
+      <a href="contact.html" class="btn btn-accent btn-lg" id="cta-talk-expert">Talk to an Expert →</a>
     </div>
   </section>
 
@@ -265,17 +285,6 @@
       <div class="blog-grid" id="home-blog-grid">
         <!-- Populated by JS -->
       </div>
-    </div>
-  </section>
-
-  <!-- ========== CTA BANNER ========== -->
-  <section class="cta-banner" id="cta-banner">
-    <div class="container cta-inner">
-      <div class="cta-text">
-        <h2>Ready to Find Your Ideal Property?</h2>
-        <p>Our experts are just a call away. Get personalized guidance today.</p>
-      </div>
-      <a href="contact.html" class="btn btn-accent btn-lg" id="cta-talk-expert">Talk to an Expert →</a>
     </div>
   </section>
 
