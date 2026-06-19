@@ -397,12 +397,16 @@ function renderPropertyCards(properties, containerId) {
     card.className = 'property-card';
     card.innerHTML = `
       <div class="property-image">
-        <img src="${prop.image || 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80'}" alt="${prop.title}" class="property-image-placeholder" style="object-fit: cover; width: 100%; height: 100%;">
+        <a href="property-detail.html" style="display:block; height:100%;">
+          <img src="${prop.image || 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80'}" alt="${prop.title}" class="property-image-placeholder" style="object-fit: cover; width: 100%; height: 100%;">
+        </a>
         <div class="property-badges">${badges}</div>
       </div>
       <div class="property-body">
         <span class="property-category">${prop.category}</span>
-        <h3 class="property-title">${prop.title}</h3>
+        <a href="property-detail.html" style="text-decoration:none; color:inherit;">
+          <h3 class="property-title">${prop.title}</h3>
+        </a>
         <div class="property-location">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           ${prop.location}
@@ -414,7 +418,7 @@ function renderPropertyCards(properties, containerId) {
         </div>
         <div class="property-footer">
           <span class="property-price">${prop.price}</span>
-          <a href="#" class="link-arrow">View →</a>
+          <a href="property-detail.html" class="link-arrow">View Details →</a>
         </div>
       </div>
     `;
