@@ -869,7 +869,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 /* ================================================================
    ABOUT PAGE
    ================================================================ */
-.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.story-image { position: sticky; top: 120px; }
 .story-content p { margin-bottom: 1.25rem; font-size: 1.05rem; color: var(--gray-600); line-height: 1.7; font-family: 'Spectral', serif; }
 .story-content p:last-of-type { font-size: 1.15rem; font-weight: 500; color: var(--green-900); padding-left: 1.5rem; border-left: 3px solid #B8860B; margin-top: 2rem; }
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
@@ -931,6 +932,12 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 
 .apply-form-wrapper { max-width: 700px; margin: 0 auto; background: var(--white); padding: 3rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--gray-200); }
 .file-input { padding: .6rem !important; background: var(--white) !important; }
+
+/* --- Why Choose Us List --- */
+.why-us-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; max-width: 1100px; margin: 0 auto; }
+.luxury-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+.luxury-list li { position: relative; padding: 1.2rem 1.5rem 1.2rem 3.5rem; font-family: 'Spectral', serif; font-size: 1.15rem; color: var(--ivory); line-height: 1.5; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-sm); display: flex; align-items: center; min-height: 85px; }
+.luxury-list li::before { content: "✓"; position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--gold-500); font-weight: bold; font-size: 1.2rem; }
 
 /* ================================================================
    RESPONSIVE DESIGN
@@ -1065,9 +1072,11 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
   .about-experience-badge { bottom: 0; right: 0; transform: translate(20%, 20%); width: 90px; height: 90px; }
   .about-experience-badge .big { font-size: 1.5rem; }
 
-  .services-grid, .properties-grid, .blog-grid, .mvv-grid, .benefits-grid, .usp-grid, .team-grid, .testimonials-grid { grid-template-columns: 1fr; }
+  .services-grid, .properties-grid, .blog-grid, .mvv-grid, .benefits-grid, .usp-grid, .why-us-list-grid, .team-grid, .testimonials-grid { grid-template-columns: 1fr; }
 
-  .cta-inner { flex-direction: column; text-align: center; gap: 2rem; }
+  .cta-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .cta-actions { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto; gap: 1rem; }
+  .cta-actions .btn { width: 100%; padding: 0.9rem 1.5rem; font-size: 1rem; }
 
   /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -1725,8 +1734,9 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 }
 
 .bottom-inquiry-card {
-  background: var(--green-900);
-  color: var(--white);
+  background: var(--ivory);
+  border: 1px solid var(--gray-200);
+  color: var(--gray-900);
   padding: 4rem;
   border-radius: 8px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -1741,7 +1751,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 
 .inquiry-subtitle {
   font-size: 1.05rem;
-  color: rgba(255,255,255,0.7);
+  color: var(--gray-600);
   margin-bottom: 3rem;
   line-height: 1.5;
 }
@@ -1761,9 +1771,9 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 .inquiry-form textarea {
   width: 100%;
   padding: 1.25rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--white);
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  color: var(--gray-900);
   border-radius: 4px;
   font-family: var(--font-body);
   transition: border-color 0.3s ease;
@@ -1773,13 +1783,13 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.15; color: v
 .inquiry-form input:focus,
 .inquiry-form textarea:focus {
   outline: none;
-  border-color: var(--gold);
-  background: rgba(255,255,255,0.1);
+  border-color: var(--gold-500);
+  background: var(--white);
 }
 
 .inquiry-form input::placeholder,
 .inquiry-form textarea::placeholder {
-  color: rgba(255,255,255,0.5);
+  color: var(--gray-400);
 }
 
 .btn-full {
